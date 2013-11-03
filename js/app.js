@@ -4,7 +4,7 @@ var app = angular.module("app", ["ngResource"]);
 //con dataResource inyectamos la factoría
 app.controller("appController", function ($scope, $http, dataResource) {
     //hacemos uso de $http para obtener los datos del json
-    $http.get('http://checkflip.comxa.com/data/data.json').success(function (data) {
+    $http.get('js/data.json').success(function (data) {
         //Convert data to array.
         //datos lo tenemos disponible en la vista gracias a $scope
         $scope.datos = data;
@@ -15,7 +15,7 @@ app.controller("appController", function ($scope, $http, dataResource) {
  
 //de esta forma tan sencilla consumimos con $resource en AngularJS
 app.factory("dataResource", function ($resource) {
-    return $resource("http://checkflip.comxa.com/data/data.json", //la url donde queremos consumir
+    return $resource("js/data.json", //la url donde queremos consumir
         {}, //aquí podemos pasar variables que queramos pasar a la consulta
         //a la función get le decimos el método, y, si es un array lo que devuelve
         //ponemos isArray en true
